@@ -1,0 +1,43 @@
+---
+pagination:
+  data: testCases
+  size: 1
+  alias: testCase
+permalink: "test-cases/{{ testCase | testCaseSlug }}/"
+---
+<!DOCTYPE html>
+<html{% if testCase.langMethod == "htmlFile" %} lang="{{ testCase.lang }}"{% endif %}>
+<head>
+    <meta charset="utf-8">
+    <title>{{ testCase | testCaseTitle }}</title>
+</head>
+<body>
+
+<h1>action</h1>
+
+<p>action</p>
+
+<p>bonjour action</p>
+
+<p>action</p>
+
+<button>action</button>
+
+<hr>
+
+<p>Lang at page load: {{ testCase.lang }}<br>
+Lang method: {{ testCase.langMethod | formatLangMethod }}<br>
+Lang now: <span id="lang-now"></span></p>
+
+<button onclick="toggleLang()">Toggle</button>
+
+<script src="/site.js"></script>
+<script>
+    {% if testCase.langMethod == "js" -%}
+        setLang("{{ testCase.lang }}");
+    {% endif -%}
+    displayCurrentLang();
+</script>
+
+</body>
+</html>
