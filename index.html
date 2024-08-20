@@ -11,7 +11,7 @@
 <ul>
 
 {% for testCase in testCases %}
-    <li><a href="test-cases/{{ testCase | testCaseSlug }}/">{{ testCase | testCaseTitle }}</a></li>
+    <li><a href="{{ testCase | testCaseSlug }}/">{{ testCase | testCaseTitle }}</a></li>
 {% endfor %}
 
 </ul>

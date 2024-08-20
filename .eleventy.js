@@ -1,7 +1,7 @@
 function generateTestCases() {
     const testCases = [];
     for (const lang of ["en", "fr"]) {
-        for (const langMethod of ["htmlFile", "js"]) {
+        for (const langMethod of ["html", "js"]) {
             testCases.push({
                 lang,
                 langMethod
@@ -13,10 +13,10 @@ function generateTestCases() {
 
 function formatLangMethod(langMethod) {
     switch (langMethod) {
-        case "htmlFile":
-            return "Set in the HTML file";
+        case "html":
+            return "set in the HTML file";
         case "js":
-            return "Set by JavaScript";
+            return "set by JavaScript";
         default:
             throw new Error(`Bad langMethod "${langMethod}"`);
     }
