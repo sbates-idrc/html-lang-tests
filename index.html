@@ -9,11 +9,9 @@
 <h1>HTML lang tests</h1>
 
 <ul>
-
-{% for testCase in testCases %}
-    <li><a href="{{ testCase | testCaseSlug }}/">{{ testCase | testCaseTitle }}</a></li>
-{% endfor %}
-
+{%- for pg in collections.testCasePages %}
+    <li><a href="{{ pg.page.url }}">{{ pg.data.title }}</a></li>
+{%- endfor %}
 </ul>
 
 </body>

@@ -1,15 +1,19 @@
 ---
+tags: testCasePages
 pagination:
   data: testCases
   size: 1
   alias: testCase
-permalink: "{{ testCase | testCaseSlug }}/"
+  addAllPagesToCollections: true
+permalink: "{{ testCase.startingLang }}-{{ testCase.startingLangMethod }}/"
+eleventyComputed:
+  title: "Start with lang=\"{{ testCase.startingLang }}\", {{ testCase.startingLangMethod | formatLangMethod }}"
 ---
 <!DOCTYPE html>
-<html{% if testCase.langMethod == "html" %} lang="{{ testCase.lang }}"{% endif %}>
+<html{% if testCase.startingLangMethod == "html" %} lang="{{ testCase.startingLang }}"{% endif %}>
 <head>
     <meta charset="utf-8">
-    <title>{{ testCase | testCaseTitle }}</title>
+    <title>{{ title }}</title>
 </head>
 <body>
 
@@ -49,18 +53,18 @@ permalink: "{{ testCase | testCaseSlug }}/"
 
 <hr>
 
-<p>Lang at page load: {{ testCase.lang }}<br>
-Lang method: {{ testCase.langMethod | formatLangMethod }}<br>
+<p>Lang at page load: {{ testCase.startingLang }}<br>
+Lang method: {{ testCase.startingLangMethod | formatLangMethod }}<br>
 Lang now: <span id="lang-now"></span></p>
 
 <button onclick="toggleLang()">Toggle</button>
 
 <script src="/site.js"></script>
 <script>
-    {% if testCase.langMethod == "js" -%}
-        setLang("{{ testCase.lang }}");
+    {% if testCase.startingLangMethod == "js" -%}
+        setLang("{{ testCase.startingLang }}");
     {% endif -%}
-    setDynamicContent("{{ testCase.lang }}");
+    setDynamicContent("{{ testCase.startingLang }}");
     displayCurrentLang();
 </script>
 

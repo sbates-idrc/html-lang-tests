@@ -1,39 +1,29 @@
 function generateTestCases() {
     const testCases = [];
-    for (const lang of ["en", "fr"]) {
-        for (const langMethod of ["html", "js"]) {
+    for (const startingLang of ["en", "fr"]) {
+        for (const startingLangMethod of ["html", "js"]) {
             testCases.push({
-                lang,
-                langMethod
+                startingLang,
+                startingLangMethod
             });
         }
     }
     return testCases;
 }
 
-function formatLangMethod(langMethod) {
-    switch (langMethod) {
-        case "html":
-            return "set in the HTML file";
-        case "js":
-            return "set by JavaScript";
-        default:
-            throw new Error(`Bad langMethod "${langMethod}"`);
-    }
-}
-
 module.exports = function(eleventyConfig) {
     eleventyConfig.addGlobalData("testCases", generateTestCases());
 
-    eleventyConfig.addFilter("testCaseSlug", function(testCase) {
-        return `${testCase.lang}-${testCase.langMethod}`;
+    eleventyConfig.addFilter("formatLangMethod", function(langMethod) {
+        switch (langMethod) {
+            case "html":
+                return "set in the HTML file";
+            case "js":
+                return "set by JavaScript";
+            default:
+                throw new Error(`Bad langMethod "${langMethod}"`);
+        }
     });
-
-    eleventyConfig.addFilter("testCaseTitle", function (testCase) {
-        return `Start with lang="${testCase.lang}", ${formatLangMethod(testCase.langMethod)}`;
-    });
-
-    eleventyConfig.addFilter("formatLangMethod", formatLangMethod);
 
     eleventyConfig.addPassthroughCopy("site.js");
 };
