@@ -10,7 +10,7 @@
 
 <ul>
 {%- for pg in collections.testCasePages %}
-    <li><a href="{{ pg.page.url }}">{{ pg.data.title }}</a></li>
+    <li><a href="{{ pg.page.url | url }}">{{ pg.data.title }}</a></li>
 {%- endfor %}
 </ul>
 

@@ -34,6 +34,8 @@ module.exports = function(eleventyConfig) {
 		dir: {
             // Host on GitHub Pages using the "docs" directory
 			output: "docs"
-		}
+		},
+        // GitHub Pages
+        pathPrefix: "/html-lang-tests/"
 	};
 };

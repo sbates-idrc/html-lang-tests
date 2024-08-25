@@ -59,7 +59,7 @@ Lang now: <span id="lang-now"></span></p>
 
 <button onclick="toggleLang()">Toggle</button>
 
-<script src="/site.js"></script>
+<script src="{{ "/site.js" | url }}"></script>
 <script>
     {% if testCase.startingLangMethod == "js" -%}
         setLang("{{ testCase.startingLang }}");
