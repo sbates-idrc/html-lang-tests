@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Start with lang="en", set by JavaScript</title>
+</head>
+<body>
+
+<h1>action</h1>
+
+<p>action</p>
+
+<p>bonjour action</p>
+
+<p>action</p>
+
+<p><button>action</button></p>
+
+<p><button aria-label="action">
+    <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" fill="blue" />
+    </svg>
+</button></p>
+
+<hr>
+
+<h1 class="dynamic-text"></h1>
+
+<p class="dynamic-text"></p>
+
+<p><button class="dynamic-text"></button></p>
+
+<p><button  class="dynamic-aria-label">
+    <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" fill="blue" />
+    </svg>
+</button></p>
+
+<hr>
+
+<div id="dynamic-content-tree"></div>
+
+<hr>
+
+<p>Lang at page load: en<br>
+Lang method: set by JavaScript<br>
+Lang now: <span id="lang-now"></span></p>
+
+<button onclick="toggleLang()">Toggle</button>
+
+<script src="/site.js"></script>
+<script>
+    setLang("en");
+    setDynamicContent("en");
+    displayCurrentLang();
+</script>
+
+</body>
+</html>

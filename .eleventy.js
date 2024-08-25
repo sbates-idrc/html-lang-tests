@@ -25,5 +25,15 @@ module.exports = function(eleventyConfig) {
         }
     });
 
+    // GitHub Pages
+    eleventyConfig.addPassthroughCopy(".nojekyll");
+
     eleventyConfig.addPassthroughCopy("site.js");
+
+    return {
+		dir: {
+            // Host on GitHub Pages using the "docs" directory
+			output: "docs"
+		}
+	};
 };
