@@ -50,7 +50,10 @@ function setDynamicContent(lang) {
     }
 
     // Dynamic tree
-    document.getElementById("dynamic-content-tree").innerHTML = dynamicContentTree[lang];
+    const dynamicTreeElem = document.getElementById("dynamic-content-tree");
+    // Set innerHTML to "" first to make sure that the existing nodes are removed
+    dynamicTreeElem.innerHTML = "";
+    dynamicTreeElem.innerHTML = dynamicContentTree[lang];
 }
 
 function toggleLang() {
