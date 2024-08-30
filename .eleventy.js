@@ -26,12 +26,13 @@ module.exports = function(eleventyConfig) {
     });
 
     // GitHub Pages
-    eleventyConfig.addPassthroughCopy(".nojekyll");
+    eleventyConfig.addPassthroughCopy("src/.nojekyll");
 
-    eleventyConfig.addPassthroughCopy("site.js");
+    eleventyConfig.addPassthroughCopy("src/site.js");
 
     return {
 		dir: {
+		    input: "src",
             // Host on GitHub Pages using the "docs" directory
 			output: "docs"
 		},
