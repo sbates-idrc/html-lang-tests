@@ -30,8 +30,8 @@ switches the `lang` attribute on the `<html>` element between `"en"` and
 This project uses [Eleventy](https://www.11ty.dev/) to build the test
 web pages with the generated HTML pages being hosted on GitHub Pages.
 The GitHub repository is configured to serve the pages from the `docs`
-directory and the `.eleventy.js` configuration file specifies the output
-directory as `docs`. The generated pages are committed to the
+directory and the `eleventy.config.js` configuration file specifies the
+output directory as `docs`. The generated pages are committed to the
 repository.
 
 Use the following commands to build the web pages:
